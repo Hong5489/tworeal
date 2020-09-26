@@ -1,0 +1,21 @@
+# This requirements file lists all third-party dependencies for this project.
+#
+# Run 'pip install -r requirements.txt -t lib/' to install these dependencies
+# in `lib/` subdirectory.
+#
+# Note: The `lib` directory is added to `sys.path` by `appengine_config.py`.
+Flask==0.10
+factordb-pycli
+pycrypto
+pytesseract==0.2.7
+google-cloud-vision
+gmpy2==2.0.8
+git+git://github.com/elliptic-shiho/primefac-fork@master
+numpy
+pillow
+cryptography
+pwntools
+uwsgi
+pyjadx
+uncompyle6
+pefile

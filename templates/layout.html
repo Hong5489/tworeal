@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Team SKR</title>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="/static/bootstrap4-neon-glow.min.css">
+    <link rel="stylesheet" href="/static/dropzone.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css" />
+    <link rel="stylesheet" href="/static/lib/monokai.css" />
+
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="/static/bootstrap.bundle.min.js"></script>
+    <script src="/static/dropzone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js"></script>
+    <script src="/static/keymap/sublime.js"></script>
+    <script src="/static/lib/closebrackets.js"></script>
+    <script src="/static/mode/python.js"></script>
+    <script src="/static/mode/htmlmixed.js"></script>
+    <script src="/static/mode/javascript.js"></script>
+    <script src="/static/mode/css.js"></script>
+    <script src="/static/mode/xml.js"></script>
+    <script src="/static/mode/clike.js"></script> 
+
+  <div class="navbar-dark text-white">
+    <div class="container">
+      <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a href="/" class="pl-md-0 p-3 text-light">Home</a>
+            <a href="/tools" class="p-3 text-decoration-none text-light">CTF Tools</a>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>

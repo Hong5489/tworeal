@@ -1,0 +1,29 @@
+h1:hover{
+    animation: glitch-text .2s steps(1) 6 alternate forwards,glitch-blink .6s steps(1) 2
+}
+@keyframes glitch-text {
+    25% {
+        transform: skew(10deg) scaleX(1.05)
+    }
+
+    50% {
+        transform: skew(-20deg) scaleX(1.08)
+    }
+
+    75% {
+        transform: skew(15deg)
+    }
+
+    to {
+        transform: skew(0) scaleX(1)
+    }
+}
+@keyframes glitch-blink {
+    50% {
+        opacity: 0
+    }
+
+    75% {
+        opacity: 1
+    }
+}

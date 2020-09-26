@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class="ht-main">
+  
+<div class="container py-5 mb5">
+  <h1 class="mb-5">Sample application</h1>
+
+  <div class="row">
+    <div class="col-md-3">
+        <h3>Packages</h3>
+
+        <div class="list-group" style="word-wrap: break-word;">
+     	{% for i in range(10*(page-1),(page*10)+1) %}
+          <a data-toggle="tab" href="#p{{i}}" class="list-group-item list-group-item-action">{{packages[i].name}}</a>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-9 tab-content">
+    	<h3>Classes</h3>
+	    {% for i in range(10*(page-1),(page*10)+1) %}
+	    <div class="tab-pane fade" id="p{{i}}">
+	    	<div class="list-group">
+		{% for j in packages[i].classes %}
+		<a data-toggle="collapse" href="#p{{i}}{{j.name}}" class="list-group-item list-group-item-action">{{j.name}}</a>
+		<div class="collapse" id="p{{i}}{{j.name}}">
+			{{j.code}}
+		</div>	
+		{% endfor %}
+		</div>
+	    </div>
+	    {% endfor %}
+	</div>
+  </div>
+
+</div>
+<ul class="pagination">
+	<li class="page-item disabled">
+	  <span class="page-link">Previous</span>
+	</li>
+	<li class="page-item">
+	  <a class="page-link" href="#!">1</a>
+	</li>
+	<li class="page-item active">
+	  <span class="page-link">
+	    2
+	    <span class="sr-only">(current)</span>
+	  </span>
+	</li>
+	<li class="page-item">
+	  <a class="page-link" href="#!">3</a>
+	</li>
+	<li class="page-item">
+	  <a class="page-link" href="#!">Next</a>
+	</li>
+</ul>
+{% endblock %}
