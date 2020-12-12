@@ -2,8 +2,10 @@
 # Import the Flask Framework
 from flask import Flask
 from flask import render_template,request,send_from_directory
+from flask_misaka import Misaka
 import ctftools
 app = Flask(__name__)
+Misaka(app,fenced_code=True)
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
 
@@ -27,14 +29,14 @@ def tools():
 	"""Return a friendly HTTP greeting."""
 	return render_template('ctftools.html')
 
-@app.route("/test")
-def test():
-	import pyjadx
-	jadx = pyjadx.Jadx()
-	app = jadx.load("mysecret.apk")
-	packages = app.packages[::-1]
-	page = 1
-	return render_template('apkdecompile.html',page=1,packages=packages,id=[i for i in range(len(packages))])
+#@app.route("/test")
+#def test():
+#	import pyjadx
+#	jadx = pyjadx.Jadx()
+#	app = jadx.load("mysecret.apk")
+#	packages = app.packages[::-1]
+#	page = 1
+#	return render_template('apkdecompile.html',page=1,packages=packages,id=[i for i in range(len(packages))])
 
 @app.route('/autoCrypto',methods=["POST"])
 def autoCrypto():

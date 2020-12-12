@@ -16,6 +16,7 @@ pillow
 cryptography
 pwntools
 uwsgi
-pyjadx
+#pyjadx
 uncompyle6
 pefile
+Flask-Misaka
