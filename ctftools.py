@@ -291,7 +291,7 @@ def ocr(file):
 	try:
 		client = vision.ImageAnnotatorClient()
 		content = file.read()
-		image = vision.types.Image(content=content)
+		image = vision.Image(content=content)
 		response = client.text_detection(image=image)
 		texts = response.text_annotations
 		result = html.escape(texts[0].description)
