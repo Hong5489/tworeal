@@ -241,17 +241,26 @@ def decryptRSAValues(values,delta=.292,m=4):
 						phi = n-1
 						factors = [None]
 					else:
-						factors = factor_n(n)
-						if len(factors) == 2:
+						from fermat import fermat_factor
+						cond,factors = fermat_factor(n)
+						if cond:
 							p,q = int(factors[0]),int(factors[1])
 							if p != q:
 								phi = (p-1) * (q-1)
 							else:
 								phi = p * (p-1)
 						else:
-							phi = 1
-							for f in factors:
-								phi *= (f-1) 
+							factors = factor_n(n)
+							if len(factors) == 2:
+								p,q = int(factors[0]),int(factors[1])
+								if p != q:
+									phi = (p-1) * (q-1)
+								else:
+									phi = p * (p-1)
+							else:
+								phi = 1
+								for f in factors:
+									phi *= (f-1) 
 				
 					d = inverse(e,phi)
 				m = pow(c,d,n)
