@@ -241,16 +241,8 @@ def decryptRSAValues(values,delta=.292,m=4):
 						phi = n-1
 						factors = [None]
 					else:
-						from fermat import fermat_factor
-						cond,factors = fermat_factor(n)
-						if cond:
-							p,q = int(factors[0]),int(factors[1])
-							if p != q:
-								phi = (p-1) * (q-1)
-							else:
-								phi = p * (p-1)
-						else:
-							factors = factor_n(n)
+						factors = factor_n(n)
+						if factors:
 							if len(factors) == 2:
 								p,q = int(factors[0]),int(factors[1])
 								if p != q:
@@ -260,14 +252,24 @@ def decryptRSAValues(values,delta=.292,m=4):
 							else:
 								phi = 1
 								for f in factors:
-									phi *= (f-1) 
-				
+									phi *= (f-1)
+						else:
+							from fermat import fermat_factor
+							cond,factors = fermat_factor(n)
+							if cond:
+								p,q = int(factors[0]),int(factors[1])
+								if p != q:
+									phi = (p-1) * (q-1)
+								else:
+									phi = p * (p-1)
+							else:
+								return FAIL % "Fail to factorize n!!"
 					d = inverse(e,phi)
 				m = pow(c,d,n)
 				return multiResult(["Message","<b>"+str(long_to_bytes(m))[2:-1]+"</b>"],["m =",str(m)],["Factors =",str(factors)[1:-1]],["d =",str(d)])
 			except Exception as e:
-				#return FAIL % str(e)	
-				return FAIL % "Fail to factorize n!!"
+				return FAIL % str(e)	
+				#return FAIL % "Fail to factorize n!!"
 			# try:
 			# 	assert(n == p*q)
 			# 	return decryptRSA(n,c,e,False,p,q)
